@@ -1,0 +1,109 @@
+body {
+  font-family: -apple-system, sans-serif;
+  background: #f5f5f5;
+  text-align: center;
+  margin: 0;
+  padding: 15px;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+}
+
+h1 {
+  color: #1565c0;
+  font-size: 2.5rem;
+}
+
+.garage {
+  background: white;
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.15);
+}
+
+.garageCar {
+  font-size: 110px;
+}
+
+#points {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.15);
+}
+
+.picture {
+  font-size: 160px;
+  margin: 15px 0;
+}
+
+.answerBtn {
+
+  width: 100%;
+
+  min-height: 95px;
+
+  margin-top: 15px;
+
+  border: none;
+
+  border-radius: 25px;
+
+  background: #1976d2;
+
+  color: white;
+
+  font-size: 34px;
+
+  font-weight: bold;
+}
+
+.answerBtn:active {
+  transform: scale(.98);
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 42px;
+  font-weight: bold;
+  min-height: 60px;
+}
+
+.progressSection {
+  margin-top: 20px;
+}
+
+.unlock {
+  background: white;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+.unlocked {
+  background: #c8ffd1;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+
+  .picture {
+    font-size: 140px;
+  }
+
+  .answerBtn {
+    font-size: 30px;
+  }
+
+  .message {
+    font-size: 34px;
+  }
+}
