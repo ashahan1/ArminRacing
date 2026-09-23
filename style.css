@@ -1,112 +1,49 @@
-body{
-  font-family:-apple-system,sans-serif;
-  background:#f5f5f5;
-  margin:0;
-  padding:15px;
-  text-align:center;
+* {
+  box-sizing: border-box;
 }
 
-.container{
-  max-width:700px;
-  margin:auto;
+body {
+  margin: 0;
+  padding: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f7fb;
+  text-align: center;
 }
 
-h1{
-  color:#1565c0;
-  font-size:2.5rem;
+.container {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.garage{
-  background:white;
-  padding:15px;
-  border-radius:20px;
-  box-shadow:0 3px 10px rgba(0,0,0,.15);
-  margin-bottom:15px;
+h1 {
+  color: #1565c0;
+  margin-bottom: 15px;
 }
 
-.garageCar{
-  font-size:110px;
+h2 {
+  margin-top: 0;
 }
 
-#points{
-  font-size:34px;
-  font-weight:bold;
+.garage {
+  background: white;
+  border-radius: 24px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.10);
 }
 
-.card{
-  background:white;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 3px 10px rgba(0,0,0,.15);
+.garageCar {
+  font-size: 100px;
+  line-height: 1;
 }
 
-.vehicleImage{
-  font-size:140px;
-  margin-top:10px;
+#points {
+  margin-top: 10px;
+  font-size: 32px;
+  font-weight: bold;
 }
 
-.wordPuzzle{
-  font-size:72px;
-  font-weight:bold;
-  letter-spacing:12px;
-  color:#1565c0;
-  margin:10px 0 20px;
-}
-
-.answerBtn{
-  width:100%;
-  min-height:95px;
-  margin-top:15px;
-  border:none;
-  border-radius:25px;
-  background:#1976d2;
-  color:white;
-  font-size:36px;
-  font-weight:bold;
-}
-
-.answerBtn:active{
-  transform:scale(.97);
-}
-
-.message{
-  margin-top:20px;
-  font-size:40px;
-  font-weight:bold;
-  min-height:60px;
-}
-
-.progressSection{
-  margin-top:20px;
-}
-
-.unlock{
-  background:white;
-  border-radius:15px;
-  padding:15px;
-  margin-top:10px;
-}
-
-.unlocked{
-  background:#c8ffd1;
-  font-weight:bold;
-}
-
-@media (max-width:600px){
-
-  .vehicleImage{
-    font-size:120px;
-  }
-
-  .wordPuzzle{
-    font-size:56px;
-  }
-
-  .answerBtn{
-    font-size:32px;
-  }
-
-  .message{
-    font-size:30px;
-  }
-}
+.card {
+  background: white;
+  border-radius: 24px;
+  
