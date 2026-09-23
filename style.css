@@ -1,109 +1,112 @@
-body {
-  font-family: -apple-system, sans-serif;
-  background: #f5f5f5;
-  text-align: center;
-  margin: 0;
-  padding: 15px;
+body{
+  font-family:-apple-system,sans-serif;
+  background:#f5f5f5;
+  margin:0;
+  padding:15px;
+  text-align:center;
 }
 
-.container {
-  max-width: 700px;
-  margin: auto;
+.container{
+  max-width:700px;
+  margin:auto;
 }
 
-h1 {
-  color: #1565c0;
-  font-size: 2.5rem;
+h1{
+  color:#1565c0;
+  font-size:2.5rem;
 }
 
-.garage {
-  background: white;
-  border-radius: 20px;
-  padding: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 3px 10px rgba(0,0,0,.15);
+.garage{
+  background:white;
+  padding:15px;
+  border-radius:20px;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
+  margin-bottom:15px;
 }
 
-.garageCar {
-  font-size: 110px;
+.garageCar{
+  font-size:110px;
 }
 
-#points {
-  font-size: 34px;
-  font-weight: bold;
+#points{
+  font-size:34px;
+  font-weight:bold;
 }
 
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 3px 10px rgba(0,0,0,.15);
+.card{
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
 }
 
-.picture {
-  font-size: 160px;
-  margin: 15px 0;
+.vehicleImage{
+  font-size:140px;
+  margin-top:10px;
 }
 
-.answerBtn {
-
-  width: 100%;
-
-  min-height: 95px;
-
-  margin-top: 15px;
-
-  border: none;
-
-  border-radius: 25px;
-
-  background: #1976d2;
-
-  color: white;
-
-  font-size: 34px;
-
-  font-weight: bold;
+.wordPuzzle{
+  font-size:72px;
+  font-weight:bold;
+  letter-spacing:12px;
+  color:#1565c0;
+  margin:10px 0 20px;
 }
 
-.answerBtn:active {
-  transform: scale(.98);
+.answerBtn{
+  width:100%;
+  min-height:95px;
+  margin-top:15px;
+  border:none;
+  border-radius:25px;
+  background:#1976d2;
+  color:white;
+  font-size:36px;
+  font-weight:bold;
 }
 
-.message {
-  margin-top: 20px;
-  font-size: 42px;
-  font-weight: bold;
-  min-height: 60px;
+.answerBtn:active{
+  transform:scale(.97);
 }
 
-.progressSection {
-  margin-top: 20px;
+.message{
+  margin-top:20px;
+  font-size:40px;
+  font-weight:bold;
+  min-height:60px;
 }
 
-.unlock {
-  background: white;
-  padding: 15px;
-  margin-top: 10px;
-  border-radius: 15px;
+.progressSection{
+  margin-top:20px;
 }
 
-.unlocked {
-  background: #c8ffd1;
-  font-weight: bold;
+.unlock{
+  background:white;
+  border-radius:15px;
+  padding:15px;
+  margin-top:10px;
 }
 
-@media (max-width: 600px) {
+.unlocked{
+  background:#c8ffd1;
+  font-weight:bold;
+}
 
-  .picture {
-    font-size: 140px;
+@media (max-width:600px){
+
+  .vehicleImage{
+    font-size:120px;
   }
 
-  .answerBtn {
-    font-size: 30px;
+  .wordPuzzle{
+    font-size:56px;
   }
 
-  .message {
-    font-size: 34px;
+  .answerBtn{
+    font-size:32px;
+  }
+
+  .message{
+    font-size:30px;
   }
 }
