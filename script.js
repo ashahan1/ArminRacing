@@ -1,51 +1,73 @@
 const questions = [
 
 {
-  image:"🚗",
-  answer:"Car",
-  choices:["Car","Dog"]
+  word:"CAR",
+  missing:"A",
+  display:"C _ R",
+  choices:["I","E","A"]
 },
 
 {
-  image:"⚡🚗",
-  answer:"Electric Car",
-  choices:["Electric Car","Banana"]
+  word:"BUS",
+  missing:"U",
+  display:"B _ S",
+  choices:["U","A","O"]
 },
 
 {
-  image:"🚒",
-  answer:"Fire Truck",
-  choices:["Fire Truck","Apple"]
+  word:"RED",
+  missing:"E",
+  display:"R _ D",
+  choices:["A","I","E"]
 },
 
 {
-  image:"🚓",
-  answer:"Police Car",
-  choices:["Police Car","Chicken"]
+  word:"DOG",
+  missing:"O",
+  display:"D _ G",
+  choices:["A","O","U"]
 },
 
 {
-  image:"🏎️",
-  answer:"Race Car",
-  choices:["Race Car","House"]
+  word:"VAN",
+  missing:"A",
+  display:"V _ N",
+  choices:["E","A","I"]
 },
 
 {
-  image:"🚙",
-  answer:"Monster Truck",
-  choices:["Monster Truck","Boat"]
+  word:"JET",
+  missing:"E",
+  display:"J _ T",
+  choices:["A","U","E"]
 },
 
 {
-  image:"🚜",
-  answer:"Bulldozer",
-  choices:["Bulldozer","Horse"]
+  word:"BIG",
+  missing:"I",
+  display:"B _ G",
+  choices:["O","I","A"]
 },
 
 {
-  image:"🚌",
-  answer:"Bus",
-  choices:["Bus","Tree"]
+  word:"MAP",
+  missing:"A",
+  display:"M _ P",
+  choices:["E","A","I"]
+},
+
+{
+  word:"SUN",
+  missing:"U",
+  display:"S _ N",
+  choices:["A","O","U"]
+},
+
+{
+  word:"CAT",
+  missing:"A",
+  display:"C _ T",
+  choices:["A","I","O"]
 }
 
 ];
@@ -62,11 +84,9 @@ const praise = [
 
 "🏆 YOU GOT IT!",
 
-"⚡ SUPER FAST!",
-
 "🚀 AMAZING!",
 
-"🎊 NICE WORK!"
+"🌟 SUPER STAR!"
 
 ];
 
@@ -91,7 +111,7 @@ function speak(text) {
     new SpeechSynthesisUtterance(text);
 
   msg.rate = 0.8;
-  msg.pitch = 1.2;
+  msg.pitch = 1.1;
 
   speechSynthesis.speak(msg);
 }
@@ -165,7 +185,7 @@ function loadQuestion() {
   document
     .getElementById("picture")
     .innerHTML =
-      currentQuestion.image;
+      `<div style="font-size:90px;font-weight:bold">${currentQuestion.display}</div>`;
 
   const answersDiv =
     document.getElementById("answers");
@@ -193,14 +213,14 @@ function loadQuestion() {
     });
 
   speak(
-    "Find " +
-    currentQuestion.answer
+    currentQuestion.display
+      .replace("_","blank")
   );
 }
 
 function checkAnswer(choice) {
 
-  if(choice === currentQuestion.answer){
+  if(choice === currentQuestion.missing){
 
     stars++;
 
@@ -217,7 +237,9 @@ function checkAnswer(choice) {
 
     updateGarage();
 
-    speak("Great job!");
+    speak(
+      currentQuestion.word
+    );
 
   }
   else {
@@ -238,12 +260,6 @@ function checkAnswer(choice) {
 
   }, 1200);
 }
-
-/* Developer helper:
-   Uncomment next line when testing unlocks
-
-   stars = 495;
-*/
 
 updateGarage();
 loadQuestion();
