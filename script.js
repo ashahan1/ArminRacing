@@ -1,93 +1,96 @@
 const questions = [
 
 {
+  image:"🚗",
   word:"CAR",
   missing:"A",
   display:"C _ R",
-  choices:["I","E","A"]
+  choices:["A","E","I"]
 },
 
 {
-  word:"BUS",
-  missing:"U",
-  display:"B _ S",
-  choices:["U","A","O"]
-},
-
-{
+  image:"🚒",
   word:"RED",
   missing:"E",
   display:"R _ D",
+  choices:["E","A","I"]
+},
+
+{
+  image:"🚓",
+  word:"COP",
+  missing:"O",
+  display:"C _ P",
+  choices:["A","U","O"]
+},
+
+{
+  image:"🏎️",
+  word:"RACE",
+  missing:"A",
+  display:"R _ C E",
+  choices:["A","I","O"]
+},
+
+{
+  image:"🚙",
+  word:"VAN",
+  missing:"A",
+  display:"V _ N",
   choices:["A","I","E"]
 },
 
 {
+  image:"⚡🚗",
+  word:"EV",
+  missing:"E",
+  display:"_ V",
+  choices:["A","I","E"]
+},
+
+{
+  image:"🚜",
+  word:"DIG",
+  missing:"I",
+  display:"D _ G",
+  choices:["I","A","O"]
+},
+
+{
+  image:"🚌",
+  word:"BUS",
+  missing:"U",
+  display:"B _ S",
+  choices:["A","U","O"]
+},
+
+{
+  image:"🐱",
+  word:"CAT",
+  missing:"A",
+  display:"C _ T",
+  choices:["A","O","I"]
+},
+
+{
+  image:"🐶",
   word:"DOG",
   missing:"O",
   display:"D _ G",
   choices:["A","O","U"]
-},
-
-{
-  word:"VAN",
-  missing:"A",
-  display:"V _ N",
-  choices:["E","A","I"]
-},
-
-{
-  word:"JET",
-  missing:"E",
-  display:"J _ T",
-  choices:["A","U","E"]
-},
-
-{
-  word:"BIG",
-  missing:"I",
-  display:"B _ G",
-  choices:["O","I","A"]
-},
-
-{
-  word:"MAP",
-  missing:"A",
-  display:"M _ P",
-  choices:["E","A","I"]
-},
-
-{
-  word:"SUN",
-  missing:"U",
-  display:"S _ N",
-  choices:["A","O","U"]
-},
-
-{
-  word:"CAT",
-  missing:"A",
-  display:"C _ T",
-  choices:["A","I","O"]
 }
 
 ];
 
 const praise = [
-
 "🎉 YES!",
-
 "🏁 AWESOME!",
-
 "🚗 GREAT JOB!",
-
 "⭐ WOW!",
-
 "🏆 YOU GOT IT!",
-
+"⚡ SUPER FAST!",
 "🚀 AMAZING!",
-
 "🌟 SUPER STAR!"
-
 ];
 
 let stars =
@@ -95,7 +98,7 @@ parseInt(localStorage.getItem("rr-stars")) || 0;
 
 let currentQuestion;
 
-function saveProgress() {
+function saveProgress(){
 
   localStorage.setItem(
     "rr-stars",
@@ -103,7 +106,10 @@ function saveProgress() {
   );
 }
 
-function speak(text) {
+function speak(text){
+
+  if(!window.speechSynthesis)
+    return;
 
   speechSynthesis.cancel();
 
@@ -116,7 +122,7 @@ function speak(text) {
   speechSynthesis.speak(msg);
 }
 
-function updateGarage() {
+function updateGarage(){
 
   document.getElementById("points").innerHTML =
     stars + " Stars ⭐";
@@ -168,27 +174,34 @@ function updateGarage() {
       .classList.add("unlocked");
   }
 
-  document
-    .getElementById("garageCar")
-    .innerHTML = vehicle;
+  document.getElementById("garageCar").innerHTML =
+    vehicle;
 }
 
-function loadQuestion() {
+function loadQuestion(){
 
   currentQuestion =
     questions[
       Math.floor(
-        Math.random() * questions.length
+        Math.random() *
+        questions.length
       )
     ];
 
-  document
-    .getElementById("picture")
-    .innerHTML =
-      `<div style="font-size:90px;font-weight:bold">${currentQuestion.display}</div>`;
+  document.getElementById(
+    "vehicleImage"
+  ).innerHTML =
+    currentQuestion.image;
+
+  document.getElementById(
+    "wordPuzzle"
+  ).innerHTML =
+    currentQuestion.display;
 
   const answersDiv =
-    document.getElementById("answers");
+    document.getElementById(
+      "answers"
+    );
 
   answersDiv.innerHTML = "";
 
@@ -196,29 +209,30 @@ function loadQuestion() {
     .sort(() => Math.random() - 0.5)
     .forEach(choice => {
 
-      const button =
-        document.createElement("button");
+      const btn =
+        document.createElement(
+          "button"
+        );
 
-      button.className =
+      btn.className =
         "answerBtn";
 
-      button.innerHTML =
+      btn.innerHTML =
         choice;
 
-      button.onclick =
+      btn.onclick =
         () => checkAnswer(choice);
 
-      answersDiv.appendChild(button);
+      answersDiv.appendChild(btn);
 
     });
 
   speak(
-    currentQuestion.display
-      .replace("_","blank")
+    "Fill in the missing letter"
   );
 }
 
-function checkAnswer(choice) {
+function checkAnswer(choice){
 
   if(choice === currentQuestion.missing){
 
@@ -226,14 +240,15 @@ function checkAnswer(choice) {
 
     saveProgress();
 
-    document
-      .getElementById("message")
-      .innerHTML =
-        praise[
-          Math.floor(
-            Math.random() * praise.length
-          )
-        ];
+    document.getElementById(
+      "message"
+    ).innerHTML =
+      praise[
+        Math.floor(
+          Math.random() *
+          praise.length
+        )
+      ];
 
     updateGarage();
 
@@ -241,15 +256,14 @@ function checkAnswer(choice) {
       currentQuestion.word
     );
 
-  }
-  else {
+  } else {
 
-    document
-      .getElementById("message")
-      .innerHTML =
-        "😊 Try Again";
+    document.getElementById(
+      "message"
+    ).innerHTML =
+      "😊 Try Again";
 
-    speak("Try again");
+    speak("Try Again");
 
     return;
   }
@@ -258,7 +272,7 @@ function checkAnswer(choice) {
 
     loadQuestion();
 
-  }, 1200);
+  },1200);
 }
 
 updateGarage();
